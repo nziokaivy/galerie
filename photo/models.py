@@ -49,6 +49,17 @@ class Image(models.Model):
        Function that will get a specified image 
        """
        return cls.objects.get(id = image_id)
+
+    @classmethod
+   def search_image(cls,category):
+       """
+       This is the method to search images based on a specific category
+       """
+       try:
+           searched_category = Category.objects.filter(name__icontains  = category)[0]
+           return cls.objects.filter(category_id = searched_category.id)
+       except Exception:
+           return "No images found"   
    
    
 
