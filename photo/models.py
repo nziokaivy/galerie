@@ -3,13 +3,28 @@ from django.db import models
 class Location(models.Model):
     name = models.TextField()
 
+    @classmethod
+   def filter_by_location(cls,location):
+       """
+       This is the method to get images taken in a certain location
+       """
+       the_location = Location.objects.get(name = location)
+       return cls.objects.filter(location_id = the_location.id)
+
 
     def __str__(self):
        return self.name
 
 class Category(models.Model):
-    name = models.TextField()  
+    name = models.TextField() 
 
+    @classmethod
+    def filter_by_location(cls,location):
+       """
+       Function that will get images taken in a certain locationthe instance of this class
+       """
+       the_location = Location.objects.get(name = location)
+       return cls.objects.filter(location_id = the_location.id)
    
 
     def __str__(self):
@@ -53,7 +68,7 @@ class Image(models.Model):
     @classmethod
    def search_image(cls,category):
        """
-       This is the method to search images based on a specific category
+       Function that searches images from a specific category 
        """
        try:
            searched_category = Category.objects.filter(name__icontains  = category)[0]
@@ -61,8 +76,6 @@ class Image(models.Model):
        except Exception:
            return "No images found"   
    
-   
-
   
     def __str__(self):
        return self.name
