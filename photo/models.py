@@ -28,6 +28,12 @@ class Image(models.Model):
     def get_image(cls):
        return cls.objects.all()
 
+    def delete_image(self):
+       """
+       This is the function that we will use to delete the instance of this class
+       """
+       Image.objects.get(id = self.id).delete()   
+
   
     def __str__(self):
        return self.name
