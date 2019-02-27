@@ -5,4 +5,5 @@ from .models import Image,Category,Location
 # Create your views here.
 
 def index(request):
-   return render(request,'index.html')
+    new_image = Image.get_image()
+    return render(request,'index.html',{"new_image":new_image})
