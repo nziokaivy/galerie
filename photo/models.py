@@ -4,9 +4,9 @@ class Location(models.Model):
     name = models.TextField()
 
     @classmethod
-   def filter_by_location(cls,location):
+    def filter_by_location(cls,location):
        """
-       This is the method to get images taken in a certain location
+       Function that will get images taken in a certain location
        """
        the_location = Location.objects.get(name = location)
        return cls.objects.filter(location_id = the_location.id)
@@ -21,7 +21,7 @@ class Category(models.Model):
     @classmethod
     def filter_by_location(cls,location):
        """
-       Function that will get images taken in a certain locationthe instance of this class
+       Function that will get images taken in a certain location
        """
        the_location = Location.objects.get(name = location)
        return cls.objects.filter(location_id = the_location.id)
@@ -66,7 +66,7 @@ class Image(models.Model):
        return cls.objects.get(id = image_id)
 
     @classmethod
-   def search_image(cls,category):
+    def search_image(cls,category):
        """
        Function that searches images from a specific category 
        """
