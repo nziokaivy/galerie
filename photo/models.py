@@ -26,22 +26,30 @@ class Image(models.Model):
 
     @classmethod
     def get_image(cls):
-        """
-        Function that will save the instance of this class
-        """
+
        return cls.objects.all()
 
+    @classmethod
     def delete_image(self):
        """
        Function that will delete the instance of this class
        """
        Image.objects.get(id = self.id).delete()   
 
+    @classmethod
     def update_image(self,val):
        """
         Function that will update the instance of this class
        """
        Image.objects.filter(id = self.id).update(name = val)
+
+    @classmethod
+    def get_image_by_id(cls,image_id):
+       """
+       Function that will get a specified image 
+       """
+       return cls.objects.get(id = image_id)
+   
    
 
   
