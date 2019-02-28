@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h1>Hello World</h1>
 
-<h1> Hello world</h1>
-
-  <div class="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -18,23 +19,27 @@
             <p id="description"></p>
             <p id="category"></p>
             <p id="location"></p>
-
         </div>
         <div class="modal-footer">
-            <input name="" id="url-copy" style="position:relative;left:10000px">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="copyurl()">Copy Image url</button>
+          <input id="url-copy">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="copyurl()">Copy Url</button>
         </div>
       </div>
     </div>
   </div>
   <div class="container-fluid">
-<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-  {% for image in new_image %}
-  <img onclick="showModal('{{image.name}}','{{image.description}}','{{image.image.url}}','{{image.location.name}}','{{image.category.name}}')" class="img-responsive" src="{{ image.image.url }}">
-</div>  
-{% endfor %} 
-</div>              
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        {% for image in new_image %}
+        <div class="grid-item">
+        <img onclick="showModal('{{image.name}}','{{image.description}}','{{image.image.url}}','{{image.location.name}}','{{image.category.name}}')" class="img-responsive" src="{{ image.image.url }}">
+      </div>  
+      </div>
+      {% endfor %} 
+      </div>  
+
+
+            
 
 
 {% endblock %}
