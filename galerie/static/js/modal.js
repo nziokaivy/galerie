@@ -10,7 +10,7 @@ showModal = (name,desc,url,loc,cat) => {
    
 }
 copyUrl = () => {
-    $("#url-to-copy").select()
+    $("#url-copy").select()
     document.execCommand('copy');
     alert("Link copied")
 }
