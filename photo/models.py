@@ -66,16 +66,9 @@ class Image(models.Model):
        return cls.objects.get(id = image_id)
 
     @classmethod
-    def search_image(cls,category):
-       """
-       Function that searches images from a specific category 
-       """
-       try:
-           searched_category = Category.objects.filter(name__icontains  = category)[0]
-           return cls.objects.filter(category_id = searched_category.id)
-       except Exception:
-           return "No images found"   
-   
+    def search_by_category(cls,category):
+        photo = Category.objects.filter(name__icontains = category)
+        return photo
   
     def __str__(self):
        return self.name
