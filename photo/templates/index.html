@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Hello World</h1>
 
-<div class="w3-container-fluid">
-
-    {% for image in new_image %}
-    <img src="{{ image.image.url }}" style="width:30%;cursor:zoom-in" data-toggle="modal" data-target="#{{image.id}}"
-    style.display='block'>
-
+    
+        {% for image in new_image %}
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="photos">
+          <img src="{{image.image.url}}" class="img-responsive"  alt="Image" style="width:100%; height:350px; padding-left:0px; padding-right:0px;">
+           </div>
+  
   <!--Modal-->
     <div id="{{ image.id }}" class="modal fade" role="dialog" onclick="this.style.display='none'">
       <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
@@ -24,7 +23,7 @@
           <p>Location: {{ image.location }}</p>
           <p>Category: {{ image.category }}</p>
       </div>
-
+    </div>
       <div class="modal-footer">
           <input id="url-copy">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -32,9 +31,9 @@
          
       </div>
       
-    </div>
+   
   </div>
-  </div>
+ 
   
   {% endfor %}
 
