@@ -7,14 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-        <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                  <div class="navbar-header">
-                    <a class="navbar-brand" href="{% url 'index' %}"> Galerie</a>
-                    <a class="navbar-brand" href="/admin"> Dashboard</a>
-                    <a class="navbar-brand" href="#"> Category</a>
-                    <a class="navbar-brand" href="#"> Location</a>
-                  </div>
+    <header class="w3-container w3-xlarge w3-padding-24" style="background-color:white;">
+        <a href="#" class="w3-left w3-button w3-white">GALERIE</a>
+        <a href="#about" class="w3-right w3-button w3-white">Contact</a>
+        <a href="/admin" class="w3-right w3-button w3-white">Admin</a>
+        <a href="{% url 'index' %}" class="w3-right w3-button w3-white">Photos</a>
+        <a href="#about" class="w3-right w3-button w3-white">About</a>
+
+       
+        </header>
+ 
             
                   <!-- Adding a search form  -->
                   <div class="col-sm-4 col-md-4 navbar-right">
