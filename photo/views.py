@@ -20,3 +20,6 @@ def search_results(request):
     else:
         message = "You haven't searched for any image"
         return render(request, 'search.html',{"message":message})     
+
+def landing(request):
+    return render(request,'landing.html')        
