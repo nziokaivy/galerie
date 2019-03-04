@@ -19,7 +19,7 @@ from django.contrib import admin
 
 
 urlpatterns = [
-    url(r'^$', views.landing, name='landing'),
+    
     url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls, name='admin'),
     url(r'',include('photo.urls'))

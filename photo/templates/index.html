@@ -2,16 +2,38 @@
 
 {% block content %}
 
+
+ <!-- Adding a search form  -->
+ <img src="/static/images/image1.jpeg" style="width:100%">
+ <div id="landing" class="col-sm-4 col-md-4 navbar-right" " style="width:100%;height:30%;opacity:1.0;">"></div>">
+                      
+    <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+
+      
+
+    </form>
+  </div>
+  <!-- search form end -->
+
+
+  <div id="about" style="color:white; font-size: 30px; margin-left:30%" >
+    <h1 style="margin-left:15%;">Jambo!</h1>
+     <h2 style="margin-left:10%;">I'm Ivy Nzioka, a <br>developer and designer.</h2>
+     <p>I've always been drawn to the overlap between design and development.<br>My skills are broad from ux to design, front end to back end development.<br>I strive to build immersive and beautiful web applications through carefully<br>crafted code and user-centric design.
+        <br>Since graduating with a B.S. in Computer Science from MIT University in 2007, <br>I have focused my professional career almost exclusively on front-end development.<br>
+           When not online, I can be found in Nairobi,Kenya with my family,searching for<br>the perfect vintage items for my home, trying out a new recipe<br>in the kitchen, experimenting in gardening, or snuggling with my two dogs, Zuma and Moran .</p>
+  </div>
     
         {% for image in new_image %}
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="photos">
-          <img src="{{image.image.url}}" class="img-responsive"  alt="Image" style="width:100%; height:350px; padding-left:0px; padding-right:0px;" data-toggle="modal" data-target="#{{image.id}}">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="photos">
+          <img src="{{ image.image.url }}" class="img-responsive"  alt="Image" style="width:100%; height:350px; padding-left:0px; padding-right:0px;" data-toggle="modal" data-target="#{{image.id}}">
            </div>
 
   
 
   
   <!--Modal-->
+
     <div id="{{ image.id }}" class="modal fade" role="dialog" onclick="this.style.display='none'">
       <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
       <div class="w3-modal-content w3-animate-zoom">
@@ -26,17 +48,19 @@
           <p>Location: {{ image.location }}</p>
           <p>Category: {{ image.category }}</p>
       </div>
-    </div>
+    
       <div class="modal-footer">
           <input id="url-copy">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary" onclick="copyurl()">Copy Url</button>
-         
+        </div>
       </div>
       
    
   </div>
- 
+
+
+
   
   {% endfor %}
 
