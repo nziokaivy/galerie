@@ -2,13 +2,18 @@ from django.db import models
 
 class Location(models.Model):
     name = models.TextField()
-
+    
+    def save_location(self):
+       self.save()
 
     def __str__(self):
        return self.name
 
 class Category(models.Model):
     name = models.TextField() 
+
+    def save_category(self):
+       self.save()
 
    
     def __str__(self):
@@ -27,6 +32,12 @@ class Image(models.Model):
     def get_image(cls):
 
        return cls.objects.all()
+
+    def save_image(self):
+        """
+        Function that will  save the instance of this class
+        """
+        self.save()   
 
     @classmethod
     def delete_image(self):
@@ -48,6 +59,9 @@ class Image(models.Model):
        Function that will get a specified image 
        """
        return cls.objects.get(id = image_id)
+
+
+   
 
     @classmethod
     def search_by_category(cls,category):
