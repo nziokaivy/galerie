@@ -1,0 +1,93 @@
+
+        {%extends 'base.html'%} 
+        {% block content %}
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div id="locations">
+                <div class="container">
+                <div class="row" style="margin-left:50px;">
+                    <div class=" col-sm-12 col-md-3" style="margin-right:70px;">
+                        <img  src="/static/images/nairobi.jpg"  alt=""  style="margin-right:25px; width:300px; height:370px">
+                        <a href="{% url 'locations' 'Africa'%}"><h3 class="text-center" style="font-family: 'Open Sans Condensed', sans-serif; color:white;">Africa</h3></a>
+                    </div>
+                    <div class=" col-sm-12 col-md-3"  style="margin-right:70px;">
+                        <img src="/static/images/samerica.jpeg" alt=""  style="margin-right:25px; width:300px;">
+                        <a href="{% url 'locations' 'Samerica' %}"><h3 class="text-center" style="font-family: 'Open Sans Condensed', sans-serif; color:white;">South America</h3></a>
+                    </div>
+                    <div class=" col-sm-12 col-md-3"  style="margin-right:70px;">
+                        <img class="location-img" src="/static/images/asia.jpeg" alt=""  style="margin-right:25px; width:300px; height:370px;">
+                        <a href="{% url 'locations' 'Asia'%}"><h3 class="text-center" style="font-family: 'Open Sans Condensed', sans-serif; color:white;">Asia</h3></a>
+                    </div>
+                    
+                </div>
+                <br>
+                <br>
+                <div class="row" style="margin-left:50px;">
+                    <div class="col-sm-12 col-md-3"  style="margin-right:70px;">
+                        <img  src="/static/images/eiffel.jpeg" alt=""  style="margin-right:25px; width:300px; height:300px;">
+                        <a href="{% url 'locations' 'Europe'%}"><h3 class="text-center" style="font-family: 'Open Sans Condensed', sans-serif; color:white;">Europe</a>
+                    </div>
+                    
+                   
+                    <div class=" col-sm-12 col-md-3"  style="margin-right:70px;">
+                            <img src="/static/images/ice.jpeg" alt=""  style="margin-right:25px; width:300px; height:300px;">
+                            <a href="{% url 'locations' 'Antarctic'%}"><h3 class="text-center" style="font-family: 'Open Sans Condensed', sans-serif; color:white;">Antarctic</a>
+                        </div>
+
+                        <div class=" col-sm-12 col-md-3"  style="margin-right:70px; margin-bottom:50px;">
+                                <img src="/static/images/usa.jpeg" alt="" style="margin-right:25px; width:300px; height:300px;">
+                                <a href="{% url 'locations' 'USA'%}"><h3 class="text-center" style="font-family: 'Open Sans Condensed', sans-serif; color:white;">U.S.A</a>
+                            </div>    
+
+                        <div class=" col-sm-12 col-md-3"  style="margin-right:25px; margin-left:350px;">
+                                <img src="/static/images/world.jpeg" alt=""  style="margin-right:25px; width:300px; height:300px;">
+                                <a href="{% url 'locations' 'Somewhereintheworld'%}"><h3 class="text-center" style="font-family: 'Open Sans Condensed', sans-serif; color:white;">Somewhere in the world</a>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        
+         
+         
+        
+        <!--Modal-->
+          <div id="{{ image.id }}" class="modal fade" role="dialog" onclick="this.style.display='none'">
+            <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+            <div class="w3-modal-content w3-animate-zoom">
+              <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title" style="font-family: 'Open Sans Condensed', sans-serif;">{{ image.name }}</h4>
+            </div>
+        
+            <div class="modal-body">
+                <img src="{{ image.image.url }}" style="width:100%">
+                <p style="font-family: 'Open Sans Condensed', sans-serif;">Description: {{ image.description }}</p>
+                <p style="font-family: 'Open Sans Condensed', sans-serif;">Location: {{ image.location }}</p>
+                <p style="font-family: 'Open Sans Condensed', sans-serif;">Category: {{ image.category }}</p>
+            </div>
+          </div>
+            <div class="modal-footer">
+                <input id="url-copy">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="copyurl()">Copy Url</button>
+               
+            </div>
+            
+         
+        </div>
+        
+        
+        
+          
+          </div>
+        </div>
+    </body>
+        {% endblock %}
+        
+   
+    

@@ -8,6 +8,14 @@ def index(request):
     new_image = Image.get_image()
     return render(request,'index.html',{"new_image":new_image})
 
+
+def location(request,location):
+       locations = Image.filter_by_location(location)
+       return render(request,'location.html',{"images": locations})
+
+def locate(request):
+   return render(request,"locate.html",{"title":location})
+
 def search_results(request):
 
     if 'image' in request.GET and request.GET["image"]:

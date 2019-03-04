@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="index.css">
-</head>
-<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
     <header class="w3-container w3-xlarge w3-padding-24" style="background-color:white; padding:0px; margin-bottom:10px" >
-        <a href="#landing" class="w3-left w3-button w3-white">GALERIE</a>
-        <a href="#about" class="w3-right w3-button w3-white">Contact</a>
+        <a href="/" class="w3-left w3-button w3-white">GALERIE</a>
         <a href="/admin" class="w3-right w3-button w3-white">Admin</a>
-        <a href="{% url 'index' %}" class="w3-right w3-button w3-white">Photos</a>
-        <a href="#about" class="w3-right w3-button w3-white">About</a>
+        <a href="#photos" class="w3-right w3-button w3-white">Photos</a>
+        <a href="{% url 'location' %}" class="w3-right w3-button w3-white">Location</a>
+        
       
         <form  class= "w3 center"style="margin-top:10px; margin-left:auto;margin-right:auto; width: 50%;" class="navbar-form" role="search" action="{% url 'search_results' %}">
 
@@ -30,9 +30,16 @@
         
        
         </header>
-       
-                 
-                </div>
-              </nav>
-</body>
-</html>
+        
+        <script>
+            function myFunction() {
+             var x = document.getElementById("Demo");
+             if (x.className.indexOf("w3-show") == -1) {
+               x.className += " w3-show";
+             } else {
+               x.className = x.className.replace(" w3-show", "");
+             }
+            }
+            </script>
+        </body>
+       </html>

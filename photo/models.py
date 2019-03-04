@@ -3,14 +3,6 @@ from django.db import models
 class Location(models.Model):
     name = models.TextField()
 
-    @classmethod
-    def filter_by_location(cls,location):
-       """
-       Function that will get images taken in a certain location
-       """
-       the_location = Location.objects.get(name = location)
-       return cls.objects.filter(location_id = the_location.id)
-
 
     def __str__(self):
        return self.name
@@ -18,15 +10,7 @@ class Location(models.Model):
 class Category(models.Model):
     name = models.TextField() 
 
-    @classmethod
-    def filter_by_location(cls,location):
-       """
-       Function that will get images taken in a certain location
-       """
-       the_location = Location.objects.get(name = location)
-       return cls.objects.filter(location_id = the_location.id)
    
-
     def __str__(self):
        return self.name
   
@@ -69,6 +53,16 @@ class Image(models.Model):
     def search_by_category(cls,category):
         photo = Category.objects.filter(name__icontains = category)[0]
         return  cls.objects.filter(category_id = photo.id)
+
+    @classmethod
+    def filter_by_location(cls,location):
+       """
+       Function that will get images taken in a certain location
+       """
+       the_location = Location.objects.get(name = location)
+       return cls.objects.filter(location_id = the_location.id)
+   
+    
   
     def __str__(self):
        return self.name
