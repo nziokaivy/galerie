@@ -14,12 +14,12 @@
     </form>
   </div>
   <!-- search form end -->
-<h1 style="margin-left:45%; font-family: 'Open Sans Condensed', sans-serif; color:white;">Welcome to Galerie!</h1>
+<h1  class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-left:45%; font-family: 'Open Sans Condensed', sans-serif; color:white;">Welcome to Galerie!</h1>
  <br>
  <br>
     
         {% for image in new_image %}
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="photos">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" id="photos">
           <img src="{{ image.image.url }}" class="img-responsive"  alt="Image" style="width:100%; height:350px; padding-left:0px; padding-right:0px;" data-toggle="modal" data-target="#{{image.id}}">
            </div>
 
@@ -28,7 +28,7 @@
   
   <!--Modal-->
 
-    <div id="{{ image.id }}" class="modal fade" role="dialog" onclick="this.style.display='none'">
+    <div id="{{ image.id }}" class="modal fade" role="dialog">
       <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
       <div class="w3-modal-content w3-animate-zoom">
         <div class="modal-header">
@@ -37,7 +37,7 @@
       </div>
 
       <div class="modal-body">
-          <img src="{{ image.image.url }}" style="width:100%">
+          <img src="{{ image.image.url }}" style="width:100%; height:450px; padding-left:0px; padding-right:0px;" >
           <p>Description: {{ image.description }}</p>
           <p>Location: {{ image.location }}</p>
           <p>Category: {{ image.category }}</p>
@@ -53,11 +53,6 @@
       
    
   </div>
-
-  
-  
-  {% endfor %}
-
   <script type="text/javascript">
     function copyUrl(element){
       var myVar = document.getElementById(element)
@@ -66,6 +61,11 @@
       alert("Copied the image url: " + myVar.value);
     }
    </script>
+  
+  
+  {% endfor %}
+
+
 
 
 {% endblock %}
