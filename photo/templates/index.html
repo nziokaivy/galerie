@@ -14,8 +14,9 @@
     </form>
   </div>
   <!-- search form end -->
-
- 
+<h1 style="margin-left:45%; font-family: 'Open Sans Condensed', sans-serif; color:white;">Welcome to Galerie!</h1>
+ <br>
+ <br>
     
         {% for image in new_image %}
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="photos">
@@ -43,20 +44,28 @@
       </div>
     
       <div class="modal-footer">
-          <input id="url-copy">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="copyurl()">Copy Url</button>
+          <button  class="btn btn-info btn-sm" onclick="copyUrl('{{image.id}}-url')" > Copy Url</button>
+          <input class="form-control" type="text" id="{{image.id}}-url" value="127.0.0.1:8000{{image.image.url}}">
+ 
         </div>
       </div>
       
    
   </div>
 
-
-
+  
   
   {% endfor %}
 
-  
+  <script type="text/javascript">
+    function copyUrl(element){
+      var myVar = document.getElementById(element)
+      myVar.select();
+      document.execCommand('copy')
+      alert("Copied the image url: " + myVar.value);
+    }
+   </script>
+
 
 {% endblock %}
